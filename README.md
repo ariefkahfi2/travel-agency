@@ -1,8 +1,8 @@
-# Biro Perjalanan Mlaku-Mulu Backend API
+# Travel Agency Platform | Backend API
 
 ### Overview
 
-The Biro Perjalanan Mlaku-Mulu is a travel agency platform designed to manage tourist data and bookings efficiently. This backend API is built to handle RESTful requests and provides essential functionalities for managing tourists' information and their travel itineraries.
+The Travel Agency Platform is designed to manage tourist data and bookings efficiently. This backend API is built to handle RESTful requests and provides essential functionalities for managing tourists' information and their travel itineraries.
 
 ### Technology stacks
 
