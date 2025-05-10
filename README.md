@@ -27,9 +27,6 @@ The Travel Agency Platform is designed to manage tourist data and bookings effic
 ### Features
 
 - Booking API
-  - Accessible by `admin` and `customer` role
-    - `admin` can view list and detail specific all customer booking data
-    - `customer` can only view list and detail their booking data
   - Authenticated and role based authorization with `Bearer` token
   - List bookings per customer
   - Detail specific booking data, including:
@@ -38,7 +35,6 @@ The Travel Agency Platform is designed to manage tourist data and bookings effic
      - Start date (UTC Format)
      - Estimation time arrival date (UTC Format)
   - Create booking
-    - Accessible via `admin` and `customer` role
     - Authenticated and role based authorization with `Bearer` token
     - Booking record saved to database
     - System send booking payment notification via `customer` email

@@ -255,6 +255,10 @@ export default class BookingController {
     // Logic to update the booking status
 
     try {
+
+      console.log('Request body:', req.body);
+      console.log('Request headers:', req.headers);
+
       const booking = await this.dataSource.manager.findOneBy(Booking, {
         id: Number(bookingId)
       });
