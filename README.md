@@ -6,11 +6,11 @@ The Travel Agency Platform is designed to manage tourist data and bookings effic
 
 ### Technology stacks
 
-- Sendgrid
+- Typescript
 - Midtrans
 - TypeORM
 - Express
-- Supabase
+- Render
 - Bcrypt
 - JsonWebToken
 
