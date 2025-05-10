@@ -52,7 +52,8 @@ The Travel Agency Platform is designed to manage tourist data and bookings effic
   - Delete `customer` data
 - Register API
   - Accessible by `admin` and `customer` roles
-  - When user registered by `admin`. system will send account creation notification via their email for their default generated password
+  - User can register with their `email`, `password`, and `role` attributes
+  - Password will be hashed using `bcrypt` before saving to database
 - Login API
   - Accessible by `admin` and `customer` roles
   - User can login with their `email` and `password` attributes
