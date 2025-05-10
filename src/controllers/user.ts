@@ -7,11 +7,15 @@ import { DataSource } from 'typeorm';
 import UserResponse from '../responses/user';
 import path from "path";
 
-try {
-  config({ path: path.resolve(__dirname, '../../.env') });
-} catch (error: any) {
-  console.error("Error loading .env file", error);
+
+if (process.env.NODE_ENV !== 'production') {
+  try {
+    config({ path: path.resolve(__dirname, '../../.env') });
+  } catch (error: any) {
+    console.error("Error loading .env file", error);
+  }
 }
+
 
 const { SALT_ROUNDS, SECRET_KEY } = process.env;
 

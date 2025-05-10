@@ -4,12 +4,12 @@ import User from "../models/user"
 import Booking from "../models/booking"
 import path from "path"
 
-try {
-  config({
-    path: path.resolve(__dirname, '../../.env')
-  })
-} catch (error: any) {
-  console.error('Error loading .env', error)
+if (process.env.NODE_ENV !== 'production') {
+  try {
+    config({ path: path.resolve(__dirname, '../../.env') })
+  } catch (error: any) {
+    console.error("Error loading .env file", error)
+  }
 }
 
 const { DB_URL } = process.env;
