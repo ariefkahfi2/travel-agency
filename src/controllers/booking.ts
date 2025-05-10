@@ -251,7 +251,7 @@ export default class BookingController {
   }
 
   async handleUpdateBookingStatus(req: Request, res: Response, next: NextFunction): Promise<void> {
-    const { order_id: bookingId, status } = req.body;
+    const { order_id: bookingId, status, transaction_status } = req.body;
     // Logic to update the booking status
 
     try {
@@ -273,6 +273,11 @@ export default class BookingController {
       }
 
       let transactionStatus: string = status === 'capture' ? 'paid' : 'other';
+
+      if (transaction_status == 'settlement') {
+        transactionStatus = 'paid';
+      }
+
       booking.transactionStatus = transactionStatus;
 
       await this.dataSource.manager.save(booking);
