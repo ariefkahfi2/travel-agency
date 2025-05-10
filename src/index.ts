@@ -21,6 +21,8 @@ AppDataSource.initialize().then(datasource => {
   // User API endpoints
   app.post(
     '/api/v1/users',
+    authorize,
+    authorizeAdmin,
     (req, res, next) => userController.createUser(req, res, next)
   );
 

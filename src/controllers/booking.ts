@@ -260,7 +260,7 @@ export default class BookingController {
       console.log('Request headers:', req.headers);
 
       const booking = await this.dataSource.manager.findOneBy(Booking, {
-        id: Number(bookingId)
+        bookingCode: bookingId
       });
 
       if (!booking) {
