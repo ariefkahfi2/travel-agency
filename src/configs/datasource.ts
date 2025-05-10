@@ -22,7 +22,10 @@ const AppDataSource = new DataSource({
   entities: [User, Booking],
   synchronize: false,
   migrations: [migrationsDir],
-  logging: true
+  logging: true,
+  ssl: {
+    rejectUnauthorized: false,
+  }
 })
 
 export default AppDataSource
