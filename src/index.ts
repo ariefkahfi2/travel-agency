@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import UserController from './controllers/user';
 import AppDataSource from './configs/datasource';
@@ -76,6 +76,14 @@ AppDataSource.initialize().then(datasource => {
     authorize,
     (req, res, next) => bookingController.getAllBookings(req, res, next)
   );
+
+  // Health check endpoint
+  app.get('/api/v1/health', (req: Request, res: Response, next: NextFunction) => {
+    res.status(200).json({
+      message: 'Server is running',
+      status: 200,
+    });
+  });
 
   app.listen(port, _ => {
     console.log(`Server running at http://localhost:${port}`);
