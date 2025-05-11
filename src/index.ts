@@ -37,7 +37,7 @@ AppDataSource.initialize().then(datasource => {
   app.put(
     '/api/v1/users/:id',
     authorize,
-    authorizeCustomerOwnData,
+    authorizeAdmin,
     (req, res, next) => userController.updateUser(req, res, next)
   );
   app.delete(
