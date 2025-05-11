@@ -91,6 +91,8 @@ The Travel Agency Platform is designed to manage tourist data and bookings effic
 
 ### Notes
 
-Postman collection link: 
+Postman collection link:
 
 - [Travel Agency API](https://ariefkahfi-1699390.postman.co/workspace/arief-kahfi's-Workspace~8426d587-b8eb-434e-83fc-c9813774a5ea/collection/44834567-333c406c-282b-4e84-a8dc-ab46cca5df2a?action=share&creator=44834567)
+
+> Make sure you update the `{{baseUrl}}` variable in Postman to match your local or deployed API URL. for my deployed API URL is `https://travel-agency-ee7z.onrender.com`
