@@ -224,6 +224,35 @@ export default class UserController {
     }
   }
 
+  async getAllUsers(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const users = await this.dataSource.manager.find(User, {
+        where: {
+          role: "customer"
+        }
+      });
+      const userResponses: UserResponse[] = users.map(user => ({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt,
+      }));
+      res.status(200).json({
+        message: "Users retrieved successfully",
+        data: userResponses,
+        status: 200,
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        message: "Internal server error",
+        error: error.message,
+        status: 500,
+      });
+    }
+  }
+
   async getUser(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const { id } = req.params;

@@ -90,7 +90,16 @@ export default class BookingController {
         return;
       }
 
-      await authorizeBookingForCustomer(booking, req, this.dataSource);
+      try {
+        await authorizeBookingForCustomer(booking, req, this.dataSource);
+      } catch (error: any) {
+        res.status(403).json({
+          message: "Unauthorized access to booking",
+          status: 403,
+          data: null
+        });
+        return;
+      }
 
       const bookingResponse: BookingResponse = {
         id: booking.id,

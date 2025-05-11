@@ -42,8 +42,16 @@ AppDataSource.initialize().then(datasource => {
   );
   app.delete(
     '/api/v1/users/:id',
+    authorize,
     authorizeAdmin,
     (req, res, next) => userController.deleteUser(req, res, next)
+  );
+
+  app.get(
+    '/api/v1/users',
+    authorize,
+    authorizeAdmin,
+    (req, res, next) => userController.getAllUsers(req, res, next)
   );
 
   // Bookings API endpoints
