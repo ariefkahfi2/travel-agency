@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { DataSource, FindOperator } from "typeorm";
+import { DataSource } from "typeorm";
 import BookingResponse from "../responses/booking";
 import Booking from "../models/booking";
 import { authorizeBookingForCustomer, createPayment, getUserFromRequest } from "../utils/helper";
