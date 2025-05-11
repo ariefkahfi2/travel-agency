@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { DataSource } from "typeorm";
+import { DataSource, FindOperator } from "typeorm";
 import BookingResponse from "../responses/booking";
 import Booking from "../models/booking";
 import { authorizeBookingForCustomer, createPayment, getUserFromRequest } from "../utils/helper";
@@ -230,19 +230,18 @@ export default class BookingController {
 
     try {
       const currentUser = await getUserFromRequest(req, this.dataSource);
-      let userId: number | undefined;
 
-      if (currentUser?.role === "admin") {
-        userId = Number(req.query.userId);
-      } else if (currentUser?.role === "customer") {
-        userId = Number(currentUser.id);
+      let queryParams: any = {
+        user: {
+          id: currentUser?.id
+        }
       }
 
-      const bookings = await this.dataSource.manager.findBy(Booking, {
-        user: {
-          id: userId
-        }
-      });
+      if (currentUser?.role === "admin") {
+        queryParams = {}
+      }
+
+      const bookings = await this.dataSource.manager.findBy(Booking, queryParams);
 
       res.status(200).json({
         message: "Bookings retrieved successfully",
